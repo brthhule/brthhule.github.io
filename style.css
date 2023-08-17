@@ -16,3 +16,28 @@ p{
     font-size:100%;
     color:black;
 }
+
+/*The following are styles for links (a href)*/
+/*Unlicked*/
+a:link{
+    color:green;
+    background-color:black;
+    text-decoration:none;
+}
+/*Visited links*/
+a:visited{
+    background-color:black;
+    color:pink;
+    text-decoration:none;
+}
+/*Hover*/
+a:hover{
+    color:red;
+    background-color:transparent;
+    text-decoration:underline;
+}
+a:active{
+    color:yellow;
+    background-color: transparent;
+    text-decoration: underline;
+}
