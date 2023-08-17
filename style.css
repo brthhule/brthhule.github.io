@@ -1,0 +1,18 @@
+body{
+    background-color:aquarmarine;
+}
+
+h1{
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 300%;
+    color:rgb(46, 42, 42);
+    border: 2px solid blue;
+    padding: 30px;/*Determines the padding/space between the text and the border*/
+}
+
+p{
+    margin: 50px;/*Determines space outside the border*/
+    font-family: "Times New Roman";
+    font-size:100%;
+    color:black;
+}
