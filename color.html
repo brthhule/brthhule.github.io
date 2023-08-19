@@ -4,7 +4,7 @@
         <title>Colors</title>
     </head>
 
-    <body style = "background-color:lightblue">
+    <body>
         <a href = "color.html" target = "_blank">Color</a><br>
         <a href = "externalCSS.html" target = "_blank">External CSS</a><br>
         <a href = "index.html" target = "_blank">Index</a><br>
@@ -24,4 +24,21 @@
         <h1 style="border:2px solid Tomato;">Colored border</h1>
 
     </body>
+
+    <style>
+        p {
+            font-family: 'Times New Roman';
+        }
+        /*Doesn't show image for some reason*/
+        body {
+            
+            background-image: url('Images/Cats/cat3.jpg');
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-size: 100% 100%; /*Stretches the image to fit the entire element*/
+        }
+        
+    </style>
+
+
 </html>

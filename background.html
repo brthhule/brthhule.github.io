@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+
+<html>
+    <head lang = "en-US">
+        <title>Background</title>
+    </head>
+        
+    <body>
+        <p style = "background-image: url('Images/Cats/cat1.webp');">
+            This is a paragraph with a background of a cat<br>
+            Another one<br>
+            This is a paragraph with a background of a cat<br>
+            Another one<br>
+            This is a paragraph with a background of a cat<br>
+            Another one<br>
+            This is a paragraph with a background of a cat<br>
+            Another one<br>
+        <p id = "anotherParagraph">This is another paragraph on a cat</p>
+    </body>
+
+    <style>
+        #anotherParagraph{
+            background-image: url('Images/Cats/cats2.jpg');
+            color:black;
+        }
+
+        body {
+            background-image: url('Images/Cats/cat3.jpg');
+            background-repeat: no-repeat;
+            background-attachment: fixed; /*Makes sure the element is always covered, no stretching*/
+            background-size: cover; /*Makes background image cover the entire element*/
+        }
+    </style>
+
+</html>
