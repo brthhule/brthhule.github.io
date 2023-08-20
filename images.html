@@ -7,9 +7,9 @@
     
     <body>
         <img src = "Images\Cats\cat1.webp" alt = "Cat pic 1" style = "width:500px;height:600px;">
-        <a href = "color.html" title = "Link to color.html"><img src = Images\Cats\cats2.jpg alt = "Cat pic 2" style = "width:500px;height:300px;"></a>
+        <a href = "color.html" title = "Link to color.html"><img src = Images/Cats/cat2.jpg alt = "Cat pic 2" style = "width:500px;height:300px;"></a>
 
-        <p><img src = "Images\Cats\cat1.webp" alt = "Cat pic 1" style = "float:left;width:40px; height:40px">This is a kitten/cat. It is cute.</p>
+        <p><img src = "Images\Cats\cat1.webp" alt = "Cat pic 1" style = "float:left;width:40px; height:40px; margin-right: 20px" >This is a kitten/cat. It is cute.</p>
 
         <!--Use https://pixspy.com/ to find coordinates-->
         <h1>Below is an image map:</h1>
@@ -21,6 +21,23 @@
 
         <!--For other image map shapes, you can use circle (x,y,r) or poly (x1,y1,x2,y2,..)-->
 
+        <br><br>
+        <h1>Below is the picture element</h1>
+        <!--Shows a different picture pased on size of webpage-->
+        <picture>
+            <source media = "(min-width: 800px)" srcset = "Images/Cats/cat1.webp">
+            <source media = "(min-width: 650px)" srcset = "Images/Cats/cat2.jpg">
+            <!--Default image-->
+            <img src = "Images/Cats/cat3.jpg" style = "width:400px">
+        </picture>
+
+        <h1>Another picture:</h1>
+        <picture>
+            <source srcset = "Images/Cats/cat1.webp">
+            <source srcset = "Images/Cats/cat2.jpg">
+            <!--Default image-->
+            <img src = "Images/Cats/cat3.jpg" style = "width:auto">
+        </picture>
         
     </body>
 
