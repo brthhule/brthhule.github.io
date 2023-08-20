@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+
+<html lang = "en-US">
+    <head>
+        <title>Tables Practice</title>
+        <link rel = "stylesheet" href = "tables.css">
+    </head>
+
+    <body>
+        <h1 style = "font-family: 'Arial, Helvetica, sans-serif'; text-align: center"></h1>
+        <a href = "index.html" target = "_blank">Return to Index</a><br>
+        <hr>
+        <h1>Below is a table: </h1>
+
+        <!--Each tr tag is a different row, td is a different column/table entry, th is like td but for column headers-->
+        <table title = "Horizontal Table">
+            <caption>Combined colors (Horizontal)</caption>
+            <tr>
+                <th style = "width: 33%">First color</th>
+                <th>Second color</th>
+                <th>Combined color</th>
+            </tr>
+            <tr>
+                <td style = "background-color:red; height: 100px">Red</th>
+                <td style = "background-color:rgb(121, 121, 211)">Blue</th>
+                <td style = "background-color:purple">Purple</th>
+            </tr>
+            <tr>
+                <td style = "background-color:yellow">Yellow</th>
+                <td style = "background-color:rgb(121, 121, 211)">Blue</th>
+                <td style = "background-color:green">Green</th>
+            </tr>
+            
+        </table>
+
+        <table title = "Vertical Table">
+            <caption>Combined colors (Vertical)</caption>
+            <tr>
+                <th>First color</th>
+                <td style = "background-color:red">Red</th>
+                <td style = "background-color:yellow">Yellow</th>
+            </tr>
+            <tr>
+                <th>Second color</th>
+                <td style = "background-color:rgb(121, 121, 211)">Blue</th>
+                <td style = "background-color:rgb(121, 121, 211)">Blue</th>
+            </tr>
+            <tr>
+                <th>Combined color</th>
+                <td style = "background-color:purple">Purple</th>
+                <td style = "background-color:green">Green</th>
+            </tr>
+
+        </table>
+
+        <br><br>
+        <table>
+            <caption>Ages</caption>
+            <tr>
+                <th colspan = "2">Name</th>
+                <th>Age</th>
+            </tr>
+
+            <tr>
+                <td>Jill</td>
+                <td>Smith</td>
+                <td>50</td>
+            </tr>
+            
+        </table>
+
+        <table>
+            <caption>Table with vertical row spacing - row span</caption>
+            <tr>
+                <th>Name</th>
+                <td>Jill</td>
+            </tr>
+            <tr>
+                <th rowspan = "2">Phone</th>
+                <td>555-1234</td>
+            </tr>
+            <tr>
+                <td>555-8745</td>
+            </tr>
+
+        </table>
+    </body>
+</html>

@@ -1,0 +1,24 @@
+table, th, td, tr {
+    border: 1px solid black;
+    border-collapse: collapse;
+    border-radius: 10px;
+    border-style:dotted;
+    border-color:aquamarine;
+}
+
+tr {
+    background-color: lightcoral;
+}
+
+table {
+    width: 100%;
+    /*Cell spacing is the space between each cell. Default is 2px*/
+    border-spacing: 30px;
+}
+
+td{
+    text-align:right;
+    /*Cell padding is the space between the cell edges and hte cell content. By default, this is set to 0*/
+    padding:15px;
+    padding-top:20px;
+}
