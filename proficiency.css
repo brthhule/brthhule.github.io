@@ -1,0 +1,28 @@
+body {
+    background-color:rgb(34, 128, 128);
+}
+
+#proficiencyTable{
+    width:auto;
+    border-collapse:separate;
+    background-color:rgb(85, 186, 206);
+}
+#proficiencyTable th,td{
+    padding: 5px;
+    width: 25%;
+}
+#proficiencyTable tr td{
+    text-align: center;
+    padding: 10px;
+}
+#proficiencyTable tr:nth-child(even) {
+    background-color: #D6EEEE;
+  }
+
+#headers {
+    background-color:rgb(97, 200, 200);
+}
+
+#prficiencyTable tr{
+    border-bottom: 1px dotted black;
+}
