@@ -26,3 +26,12 @@ body {
 #prficiencyTable tr{
     border-bottom: 1px dotted black;
 }
+#trainingProgram {
+    width: 10%;
+    background-color:rgb(202, 224, 224);
+    border-collapse: separate;
+}
+#trainingProgram td, th {
+    padding: 10px;
+    text-align:center;
+}
