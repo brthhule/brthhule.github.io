@@ -1,6 +1,7 @@
 
 /*Colors: https://colorhunt.co/palette/11235a596fb7c6cf9bf6eca9*/
 body {
+    -webkit-appearance: none;
     color: #F6ECA9;
     background-color: #596FB7;
 }
