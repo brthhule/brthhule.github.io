@@ -7,8 +7,10 @@ body {
 }
 
 main {
-    width: 400px;
+    width: 600px;
     margin-left:33%;
+    border-style:solid;
+
 }
 
 .textBox {
@@ -26,11 +28,13 @@ main {
     text-align:center;
     border-radius:10px;
     width: 400px;
+    margin-left: 100px;
 }
 
 #nameTitle {
     margin-top:10px;
     width:400px;
+    margin-left: 100px;
 }
 
 #subsection {
@@ -40,10 +44,53 @@ main {
     margin-left:100px;
     height:50px;
     padding-bottom:15px;
+    margin-left:200px;
 }
 
+#projectsTable {
+    text-align:center;
+    padding-left:5px;
+    font-size:larger; 
+    width: 600px; 
+    margin-left: 0px;
+
+    tr:nth-child(even) {
+        background-color: #11235A;
+        color: white;
+    }
+}
+
+/*When window covers half of the screen, optomized for Google Chrome*/
+@media screen and (max-width: 1200px) {
+    main {
+        margin-left: 15%;
+    }
+}
+
+/*When window is fully minimized, optomized for Google Chrome*/
 @media screen and (max-width:700px){
     main {
         margin-left:10%;
+        width:400px;
+    }
+
+    .paragraph {
+        margin-left: 0px;
+    }
+
+    #subsection {
+        margin-left: 100px;
+    }
+
+    #nameTitle {
+        margin-left: 0px;
+    }
+
+    #projectsTable {
+        text-align:left;
+        padding-left:5px;
+        font-size:larger; 
+        width: 400px; 
+        margin-left: 0px;
     }
 }
