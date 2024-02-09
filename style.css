@@ -8,7 +8,8 @@ body {
 
 main {
     width: 400px;
-    margin-left:33%;
+    margin: auto;
+    justify-content: center;
 }
 
 .textBox {
@@ -46,4 +47,11 @@ main {
     main {
         margin-left:10%;
     }
+}
+
+#my-picture{
+    width: 200px;
+    margin-left: 100px;
+    margin-top: 10px;
+    border-radius: 20px;
 }
