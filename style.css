@@ -1,102 +1,102 @@
-
 /*Colors: https://colorhunt.co/palette/11235a596fb7c6cf9bf6eca9*/
 body {
-    -webkit-appearance: none;
-    color: #F6ECA9;
-    background-color: #596FB7;
+  font-family: "Balsamiq Sans", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+
+  color: #f6eca9;
+  background-color: #596fb7;
 }
 
 #portfolio-title {
-    text-align: center;
-    margin-top:10px;
-    width: 400px;  
-    font-size: xx-large;
+  text-align: center;
+  margin-top: 10px;
+  width: 400px;
+  font-size: xx-large;
 }
 
 #left {
-    width: 400px;
-    position:relative;
-    left:0;
-    margin-left: 75px;
-    margin-top: 10px;
-    height: calc(100% - 20px);
-    float: left;
+  width: 400px;
+  position: relative;
+  left: 0;
+  margin-left: 75px;
+  margin-top: 10px;
+  height: calc(100% - 20px);
+  float: left;
 }
 
 #main-container {
-    margin-top: 5px;
-    width: 400px;
-    margin: auto;
-    position: relative;
-    justify-content: center;
-    margin-top: 10px;
-    height: calc(100% - 20px);
+  margin-top: 5px;
+  width: 400px;
+  margin: auto;
+  position: relative;
+  justify-content: center;
+  margin-top: 10px;
+  height: calc(100% - 20px);
 }
 
 .subsection {
-    background-color:#11235A;
-    border-style:solid;
-    border-radius:10px;
-    text-align:center;
-    margin-top:10px;
-    width: 200px;
-    margin-left:100px;
-    height:auto;
-    padding-top: 5px;
-    font-size: larger;
-    font-weight: bold;
-    padding-bottom: 5px;
+  background-color: #11235a;
+  border-style: solid;
+  border-radius: 10px;
+  text-align: center;
+  margin-top: 10px;
+  width: 200px;
+  margin-left: 100px;
+  height: auto;
+  padding-top: 5px;
+  font-size: larger;
+  font-weight: bold;
+  padding-bottom: 5px;
 }
 
 .section-title {
-    background-color:#11235A;
-    border-style:solid;
-    border-radius:10px;
-    text-align:center;
-    width: 400px;
-    height:auto;
-    padding-top: 5px;
-    font-size: larger;
-    font-weight: bold;
-    padding-bottom: 5px;
+  background-color: #11235a;
+  border-style: solid;
+  border-radius: 10px;
+  text-align: center;
+  width: 400px;
+  height: auto;
+  padding-top: 5px;
+  font-size: larger;
+  font-weight: bold;
+  padding-bottom: 5px;
 }
-
 
 .paragraph {
-    background-color:#F6ECA9;
-    color:#11235A;
-    margin-top:10px;
-    border-style:solid;
-    border-radius:10px;
-    width: 400px;
+  background-color: #f6eca9;
+  color: #11235a;
+  margin-top: 10px;
+  border-style: solid;
+  border-radius: 10px;
+  width: 400px;
 }
 
-
-#my-picture{
-    width: 200px;
-    margin-left: 100px;
-    margin-top: 10px;
-    border-radius: 20px;
+#my-picture {
+  width: 200px;
+  margin-left: 100px;
+  margin-top: 10px;
+  border-radius: 20px;
 }
 
 .paragraph-points {
-    text-align: center;
-    margin-top: 5px;
-    font-size:large;
+  text-align: center;
+  margin-top: 5px;
+  font-size: large;
 }
 
 .paragraph-text {
-    margin-top: 5px;
-    font-size:large;
-    text-align:center;
-    padding-left: 5px;
-    padding-right: 5px;
+  margin-top: 5px;
+  font-size: large;
+  text-align: center;
+  padding-left: 5px;
+  padding-right: 5px;
 }
 
 .paragraph-title {
-    margin-top: 5px;
-    padding-bottom: 0px;
-    font-size: large;
-    font-weight:bold;
-    text-align: center;
+  margin-top: 5px;
+  padding-bottom: 0px;
+  font-size: large;
+  font-weight: bold;
+  text-align: center;
 }
