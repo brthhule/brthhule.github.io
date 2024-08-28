@@ -6,6 +6,10 @@ body {
 
   color: #f6eca9;
   background-color: #596fb7;
+
+  display: flex;
+  flex-wrap: wrap; /* Allows the items to wrap when needed */
+  justify-content: space-around;
 }
 
 #portfolio-title {
@@ -15,22 +19,16 @@ body {
   font-size: xx-large;
 }
 
-#left {
-  width: 400px;
-  position: relative;
-  left: 0;
-  margin-left: 75px;
+#main-container {
+  width: 30%;
   margin-top: 10px;
   height: calc(100% - 20px);
-  float: left;
 }
 
-#main-container {
-  margin-top: 5px;
-  width: 400px;
-  margin: auto;
-  position: relative;
-  justify-content: center;
+#activities-container {
+  float: left;
+  margin-left: calc((100% - 1200px) / 4);
+  width: 30%;
   margin-top: 10px;
   height: calc(100% - 20px);
 }
@@ -63,15 +61,6 @@ body {
   padding-bottom: 5px;
 }
 
-.paragraph {
-  background-color: #f6eca9;
-  color: #11235a;
-  margin-top: 10px;
-  border-style: solid;
-  border-radius: 10px;
-  width: 400px;
-}
-
 #my-picture {
   width: 200px;
   margin-left: 100px;
@@ -79,24 +68,21 @@ body {
   border-radius: 20px;
 }
 
-.paragraph-points {
-  text-align: center;
-  margin-top: 5px;
-  font-size: large;
-}
+@media (max-width: 1000px) {
+  .body {
+    flex-direction: column; /* Stack items vertically */
+    align-items: center; /* Center the items */
+  }
 
-.paragraph-text {
-  margin-top: 5px;
-  font-size: large;
-  text-align: center;
-  padding-left: 5px;
-  padding-right: 5px;
-}
+  #main-container {
+    width: 80%; /* Each box takes up 80% of the container width on narrow screens */
+  }
 
-.paragraph-title {
-  margin-top: 5px;
-  padding-bottom: 0px;
-  font-size: large;
-  font-weight: bold;
-  text-align: center;
+  #projects-section {
+    width: 80%;
+  }
+
+  #activities-container {
+    width: 80%;
+  }
 }
