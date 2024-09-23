@@ -84,19 +84,13 @@ body {
 
   #main-container {
     width: 100%; /* Each box takes up 80% of the container width on narrow screens */
-    margin: 5px;
-    background-color: #f6eca9;
   }
 
   #projects-section {
     width: 100%;
-    margin: 5px;
-    background-color: #f6eca9;
   }
 
   #activities-container {
     width: 100%;
-    margin: 5px;
-    background-color: #f6eca9;
   }
 }
