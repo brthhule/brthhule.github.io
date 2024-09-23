@@ -27,7 +27,11 @@
   </head>
 
   <body>
-    <div id="projects-section"></div>
+    <div id="projects-container">
+      <div class="section-title">Projects</div>
+      <div id="projects-section"></div>
+    </div>
+
     <script src="projects.js"></script>
 
     <div id="main-container">
@@ -37,12 +41,15 @@
         </div>
       </header>
 
-      <img id="my-picture" src="images/me-one.png" />
+      <img id="my-picture" src="images/me-two.png" />
       <div class="paragraph">
         <div class="paragraph-title">Career Interests</div>
         <p class="paragraph-text">
-          Analyzing how information exists between individuals and
-          organizations, and facilitating that movement
+          <ul>
+            <li>Enterprise Software Development</li>
+            <li>Network Systems</li>
+            <li>Assisting Community-Based Non-Profit Organizations</li>
+          </ul>
         </p>
       </div>
 
@@ -63,6 +70,19 @@
       </div>
     </div>
 
-    <div id="activities-container"></div>
+    
+    <div id="activities-container">
+      <div class="section-title">Work Experience</div>
+      <div id="work-section"></div>
+      <br/><br/>
+      <div class="section-title">Activities</div>
+      <div id="activities-section"></div>
+    </div>
+
+    <script src="work.js"></script>
+    <script src="activities.js"></script>
+
+    
+
   </body>
 </html>

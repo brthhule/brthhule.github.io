@@ -8,28 +8,23 @@ body {
   background-color: #596fb7;
 
   display: flex;
-  flex-wrap: wrap; /* Allows the items to wrap when needed */
-  justify-content: space-around;
+  flex-wrap: wrap;
+  justify-content: center; /* Center items horizontally */
 }
 
 #portfolio-title {
+  background-color: #11235a;
   text-align: center;
   margin-top: 10px;
   width: 400px;
   font-size: xx-large;
+  border-color: #f6eca9;
+  color: #f6eca9;
 }
 
 #main-container {
-  width: 30%;
-  margin-top: 10px;
-  height: calc(100% - 20px);
-}
-
-#activities-container {
-  float: left;
-  margin-left: calc((100% - 1200px) / 4);
-  width: 30%;
-  margin-top: 10px;
+  width: 430px;
+  margin: 10px;
   height: calc(100% - 20px);
 }
 
@@ -49,16 +44,19 @@ body {
 }
 
 .section-title {
-  background-color: #11235a;
+  background-color: #596fb7;
   border-style: solid;
   border-radius: 10px;
   text-align: center;
   width: 400px;
   height: auto;
+  margin-left: 10px;
   padding-top: 5px;
   font-size: larger;
   font-weight: bold;
   padding-bottom: 5px;
+  border-color: #f6eca9;
+  color: #f6eca9;
 }
 
 #my-picture {
@@ -66,6 +64,15 @@ body {
   margin-left: 100px;
   margin-top: 10px;
   border-radius: 20px;
+}
+
+#activities-container {
+  margin: 20px;
+  overflow: scroll;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(0, 0, 0, 0.5) transparent;
+  height: 680px;
+  width: 430px;
 }
 
 @media (max-width: 1000px) {

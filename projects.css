@@ -1,7 +1,15 @@
 #projects-section {
-  width: 30%;
   margin-top: 10px;
   height: calc(100% - 20px);
+}
+
+#projects-container {
+  margin: 20px;
+  overflow: scroll;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(0, 0, 0, 0.5) transparent;
+  height: 680px;
+  width: 430px;
 }
 
 .paragraph {
@@ -9,7 +17,8 @@
   color: #11235a;
   margin-top: 10px;
   border-style: solid;
-  border-radius: 10px;
+  border-radius: 25px;
+  margin-left: 10px;
   width: 400px;
 }
 
