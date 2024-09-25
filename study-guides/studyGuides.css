@@ -1,0 +1,37 @@
+body {
+  font-family: "Balsamiq Sans", sans-serif;
+}
+
+#prompt,
+title {
+  text-align: center;
+  font-size: x-large;
+  font-weight: 700;
+  margin: 20px;
+}
+
+#courses {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  grid-auto-rows: minmax(100px, auto);
+  column-width: 400px;
+}
+
+.course-box {
+  height: 400;
+  width: 400;
+  background-color: #11235a;
+  text-align: center;
+  color: #f6eca9;
+  align-content: center;
+  cursor: pointer;
+}
+
+.course-title {
+}
+
+a {
+  height: 300px;
+  display: block;
+}

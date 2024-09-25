@@ -1,0 +1,53 @@
+body {
+  font-family: "Balsamiq Sans", sans-serif;
+  color: #11235a;
+  background-color: #596fb7;
+}
+
+#title {
+  text-align: center;
+  font-size: 30px;
+  font-weight: 700;
+  margin: 20px;
+  color: #f6eca9;
+}
+
+.section1 {
+  font-size: 20px;
+  font-weight: 800;
+}
+
+.content-bubble {
+  width: 500px;
+
+  margin: 20px;
+  background: #f6eca9;
+  padding: 20px;
+  border-radius: 25px;
+  border-style: solid;
+  border-color: #11235a;
+  border-width: 5px;
+}
+
+.text {
+  margin-left: 20px;
+}
+
+#nav-container {
+  position: fixed;
+  margin: 20px;
+
+  background: #f6eca9;
+  padding: 20px;
+  border-radius: 25px;
+  border-style: solid;
+  border-color: #11235a;
+
+  height: 500px;
+  width: 100px;
+}
+
+#content-container {
+  margin-left: 170px;
+  justify-content: center;
+}

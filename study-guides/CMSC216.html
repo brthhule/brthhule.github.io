@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>CMSC216</title>
+
+    <link
+      href="https://fonts.googleapis.com/css?family=Montserrat"
+      rel="stylesheet"
+    />
+    <link href="course.css" rel="stylesheet" type="text/css" />
+    <!--Sets the font-->
+    <base href="studyGuide.html" target="_blank" />
+
+    <!--Balmiq Sans font-->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Balsamiq+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+
+  <body>
+    <div id="title">CMSC216</div>
+    <div id="nav-container">
+      <a href="./CMSC216.html#Memory" target="_self">Memory</a>
+    </div>
+
+    <div id="content-container">
+      <div class="content-bubble">
+        <div class="section1" id="Memory">"Von Kauffman" Model</div>
+        <div class="text">- 4 basic hardware components</div>
+        <div class="text">
+          <span
+            title="Executes instructions, tracks next instruction to execute"
+            >- CPU,
+          </span>
+          <span title="CPU knows which instruction to execute">CONTROL, </span>
+          <span title="Data is stored and can change">MEMORY, </span>
+          <span title="Optional, Device like a SCREEN">INPUT/OUTPUT</span>
+        </div>
+        <div class="text">
+          - CPU understands a set of instructions, a sequence of instructions is
+          a program that changes MEMORY and SCREEN
+        </div>
+      </div>
+
+      <div class="content-bubble">
+        <div class="section1">Observations: CPU and Program Instructions</div>
+        <div
+          class="text"
+          title="Change memory cell using address, copy cell contents, do arithmetic, print"
+        >
+          - Program instructions are simple
+        </div>
+        <div class="text">
+          CPU -> next instruction, can jump via conditionals/iteration
+        </div>
+      </div>
+
+      <div class="content-bubble">
+        <div class="section1">Memory Cells and the Screen</div>
+        <div class="text">- Fixed address, changeable contents</div>
+        <div class="text" title="Retrieve value in any cell fast">
+          - Random Access Memory (RAM)
+        </div>
+        <div class="text">
+          - Don't see memory during runtime; use print statements
+        </div>
+
+        <div class="text">Variables associated with memory cells/addresses</div>
+      </div>
+
+      <div class="content-bubble">
+        <div class="section1">C Programs to Memory</div>
+        <div class="text">- Memory cells declared wtih type of data held</div>
+        <div class="text">
+          - Equal sign '=' means store right side in cell on left
+        </div>
+        <div class="text" title="ex. int foo = 4;">
+          - Can create cell & give value at once
+        </div>
+        <div class="text">
+          - C/Java Compilers read whole functions to determine memory cells****
+        </div>
+        <div class="text" title="Uninitialized var's have arbitrary crud">
+          - Lines that only declare variables only indicate a cell is needed
+        </div>
+      </div>
+
+      <div class="content-bubble">
+        <div class="section1">printf</div>
+        <div class="text" title="Prints out an integer">- printf("%d", x)</div>
+        <div class="text">- Need stdio.h header to declare it exists</div>
+      </div>
+
+      <div class="content-bubble">
+        <div class="section1">Function Call Stack</div>
+        <div class="text">
+          Where functions store local var's and parameters (in frames)
+        </div>
+        <div class="text">Caller, Callee functions</div>
+        <div class="text">
+          Caller pushes a frame onto the function call Stack
+        </div>
+        <div class="text">
+          Callee copies values to Callee frame for parameters****
+        </div>
+        <div class="text">
+          Line execution start: For main, line after prototype; for functions:
+          line of function call
+        </div>
+        <div class="text">
+          When done, Callee frame pops off, return to Caller
+        </div>
+        <div class="text">
+          Callee may return a value, otherwise does not affect Caller frame
+        </div>
+      </div>
+
+      <div class="content-bubble">
+        <div class="section1"></div>
+        <div class="text"></div>
+      </div>
+
+      <div class="content-bubble">
+        <div class="section1"></div>
+        <div class="text"></div>
+      </div>
+    </div>
+  </body>
+</html>

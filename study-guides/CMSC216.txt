@@ -1,0 +1,12 @@
+const fs = require('fs');
+const readline = require('readline');
+
+const readInterface = readline.createInterface({
+    input: fs.createReadStream('your_file.txt'), // Replace 'your_file.txt' with the actual file path
+    output: process.stdout, // Output to the console (optional)
+    console: false // Set to true if you want to output directly to the console
+});
+
+readInterface.on('line', (line) => {
+    console.log(line); // Process each line here
+});
