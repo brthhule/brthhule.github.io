@@ -1,0 +1,294 @@
+---
+title: "Final Project"
+author: "Brennen Le"
+date: "2024-12-04"
+output: html_document
+---
+
+```{r, echo=FALSE, warning=FALSE, message=FALSE, results='hide',fig.keep='all'}
+## Load in data
+
+library(RCPA3)
+library(labelled)
+library(dplyr)
+library(modelsummary)  # model plot
+library(countries)
+library(flextable)
+
+####################################### Load in Data ###########################
+
+############################# Nuclear Model Data
+
+################### Fossil fuel consumption in Terawatt-hours (TWh) in 2022
+#Load in the dataframe
+fossil.fuels <- read.csv("C:/Users/Brennen/Desktop/School/FALL 2024/HGLO208/data/final_project/nuclear/fossil-fuel-consumption.csv")
+# Remove rows with NA
+fossil.fuels <- na.omit(fossil.fuels)
+# Isolate the 2022 year; only want to look at one year
+fossil.fuels <- fossil.fuels[fossil.fuels$Year == 2022, ]
+
+################### GDP in 2022 (USD) (independent variable)
+#Load in the dataframe
+GDP <- read.csv("C:/Users/Brennen/Desktop/School/FALL 2024/HGLO208/data/final_project/nuclear/GDP.csv")
+# Replace .. values with NA
+GDP <-  GDP %>% mutate(X2022.GDP.USD = replace(X2022.GDP.USD, X2022.GDP.USD == "..", NA))
+GDP$X2022.GDP.USD <- as.numeric(GDP$X2022.GDP.USD)
+GDP$X2022.GDP.USD <- GDP$X2022.GDP.USD / 1000000
+# Remove rows with NA values
+GDP <- na.omit(GDP)
+
+################### Life expectancy (independent variable)
+# Load in the dataframe
+life.expectancy <- read.csv("C:/Users/Brennen/Desktop/School/FALL 2024/HGLO208/data/final_project/nuclear/life-expectancy.csv")
+# Remove rows with NA values
+life.expectancy <- na.omit(life.expectancy)
+
+################### General data frame for nuclear power capacities (including in use, under construction, announced, and more; only the Prospective vector is used) (dependent variable)
+# Load in the dataframe
+nuclear <- read.csv("C:/Users/Brennen/Desktop/School/FALL 2024/HGLO208/data/final_project/nuclear/nuclear-power-capacities.csv")
+# Substitute "," with "" because a lot of numbers have commas in them (messes with as.numeric if it isn't modified)
+nuclear$Prospective <- gsub(",", "", nuclear$Prospective)
+# Turn Prospective vector from strings to numeric values
+nuclear$Prospective <- as.numeric(nuclear$Prospective)
+# Remove rows with NA values
+nuclear <- na.omit(nuclear)
+
+# Merge the data for the Nuclear Model; use auto_merge
+# All dataframes have a common column named "Country"
+combined.nuclear <- auto_merge(GDP, life.expectancy, nuclear, fossil.fuels, by = "Country")
+# Remove rows with NA values
+combined.nuclear <- na.omit(combined.nuclear)
+
+################### Merge the dataframes
+# There is an outlier in the Prospective dataframe; take all data points below 30,000
+less_than = combined.nuclear$Prospective < 30000
+# Create a placeholder vector and fill it with NA's
+combined.nuclear$prospective_data <- NA
+# Add all values in Prospective that are below the threshold to the placeholder vector
+combined.nuclear$prospective_data[less_than] <- combined.nuclear$Prospective[less_than]
+# Remove less_than to clear up space in the global environment in R Studio
+remove(less_than)
+
+############################# Impact Model Data
+
+################### Countries to be studied
+countries <- c("Afghanistan", "Pakistan", "Iraq", "Yemen", "Libya", "Syria")
+
+################### Per capita kilocalorie supply from all foods per day (independent variable)
+# Load in the data
+calorie.supply <- read.csv("C:/Users/Brennen/Desktop/School/FALL 2024/HGLO208/data/final_project/terrorism/calorie-supply.csv")
+# Isolate the countries I want to study
+calorie.supply <- calorie.supply[calorie.supply$Country %in% countries, ]
+# Isolate year to 2021
+calorie.supply <- calorie.supply[calorie.supply$Year == 2018, ]
+
+################### Corruption Perception Index assessment in 2018 (dependent variable)
+perception <- read.csv("C:/Users/Brennen/Desktop/School/FALL 2024/HGLO208/data/final_project/terrorism/corruption-perception-index.csv")
+perception <- perception[perception$Country %in% countries, ]
+perception <- perception[perception$Year == 2018, ]
+
+
+################### Share of population with energy access in 2021 (independent variable)
+access <- read.csv("C:/Users/Brennen/Desktop/School/FALL 2024/HGLO208/data/final_project/terrorism/electricity-access.csv")
+access <- access[access$Country %in% countries, ]
+
+access <- access[access$Year == 2018, ]
+
+################### Gross Domestic Product in 2018 (USD)
+terror.GDP <- read.csv("C:/Users/Brennen/Desktop/School/FALL 2024/HGLO208/data/final_project/terrorism/terror-GDP.csv")
+terror.GDP$GDP <- terror.GDP$GDP / 1000000
+
+############################# Merge data frames
+combined.impact <- auto_merge(calorie.supply, perception, access, terror.GDP, by = "Country")
+
+
+```
+
+# Stepping into the Future: Nuclear Energy and Corruption
+
+Stepping from the United States' security umbrella in the Middle East, we have seen a relationship between the energy market surrounding oil and the associated terrorist and insurgent groups in these regions, such as Afghanistan, Iraq, and Saudi Arabia.
+
+As the world population and the amount of technology we use continue to increase, we have seen energy demands increases in a seemingly unstopping manner. Energy demands are constant, and as a result, world powers have searched for ways to meet these demands; this has been largely met through oil consumption, but other sources such as renewables and nuclear are on the rise. Nevertheless, oil continue to be a giant in the energy market, and has resulted in conflicts such as the United States' war on terror in oil-producing regions. 
+
+This study explores how nations can work towards a better, brighter future by studying two models: 1) Countries incorporating nuclear energy into their energy production (**Nuclear Model**) and 2) The War on Terror's effects on countries in oil-producing regions (**Corruption Model**). **Nuclear Model** investigates the extent to which countries have invested in nuclear power infrastructure and causers for these investments, and **Corruption Model** investigates the Corruption Perception Index in several countries directly involved in the United States' War on Terror.
+
+Note: Throughout this study, variables will be referred to with shortened, italicized names to ease variable references.
+
+<hr></hr>
+
+## **Nuclear Model**
+
+The dependent variable for the **Nuclear Model** is Prospective Nuclear Power Capacity in MW as of 2024 (*prospective*), which was sourced from [Global Energy Monitor](https://globalenergymonitor.org/projects/global-nuclear-power-tracker/). This is an interval-level variable. *prospective* refers to nuclear power capacity currently under construction, in the pre-construction phase, or have been announced in 37 countries. 
+
+The countries used in this study were not selected via a specialized process; the *Nuclear Model* was initiated variable-first and countries used are those that have valid values for selected variables.
+
+<br></br>
+
+##### **Dependent Variable Distribution**
+```{r, echo=FALSE, warning=FALSE, message=FALSE, results='hide',fig.keep='all'}
+
+histC(x=prospective_data, 
+      data = combined.nuclear, 
+      xlab = "Power Capacity in MW", 
+      main = "Prospective Nuclear Power Capacity", 
+      bar.col="mediumorchid1",
+      breaks=50,
+      plot = T) 
+
+```
+
+The distribution of *prospective* appears to be skewed right, with about half the countries in the dataset not currently planning on constructing facilities to increase their nuclear energy capacity. There are two outliers that were removed from the distribution, one at 31,700 MW and another being at 118,424 MW; these points represent India and China respectively. Given the massive populations of these two nations, their energy needs are also massive, so it makes sense that the two nations with the largest populations are also the leaders in constructing facilities to increase their national nuclear energy power capacity at scale. For China especially, with it declaring commitments to doubling down in nuclear energy, the large 118,424 MW figure (about 5 times as large as the biggest point in the distribution above-- United Kingdom at 15,340 MW) also reasons out.
+
+Although many nations do not intend on moving their energy dependencies to the nuclear energy sector, others are. Nuclear energy is being ever more incorporated into methods to addressing energy demands, and the heavy investments by India and China into nuclear energy, so much so that they must be excluded from the distribution graph as their inclusion would greatly distort the graph, indicate that nuclear energy is a viable alternative to more widely used sources for energy (such as oil).
+
+The future is energy, and to meet energy demands, nuclear energy is the future. It's clear that oil usages should be evaluated to make way for a nuclear world.
+
+Aside: Nuclear power plants and reactors can produce various amounts of MW. It is difficult to estimate how many plants correlate to a certain amount of MW, but we can use a gross estimate of 1 nuclear power plant producing about 1,000 MW. Using this figure, most countries in the graph above have roughly between 0 and 5 prospective nuclear power plants; the two countries towards the right end of the distribution plan to have about 15 additional plants. 
+
+<br></br>
+
+#### **Linear Regression Model**
+
+The dependent variable above, *prospective* is also the dependent variable for the linear regression model for the **Nuclear Model**. In terms of looking to the future, the amount of facilities supporting nuclear energy capacity is a vital indicator to how countries incorporate nuclear energy into their energy demands. By investigating how many nuclear power facilities are planned on being built, we can analyze the extent to which nuclear energy is being integrated-- how many countries are integrating it, and how much energy do they hope to increase their capacities by.
+
+To conduct a linear regression on *prospective*, the following independent variables were used:
+
+- Fossil fuel consumption in Terawatt-hours (TWh) in 2022 (*fossil fuels*)
+    - Sourced from [Our World in Data](https://ourworldindata.org/fossil-fuels). 
+    - This is an interval-level variable.
+    - This is expected to have a negative relationship with *prospective*; as *fossil fuels* increases, *prospective* decreases.
+- Life expectancy as of 2024 (*expectancy*). 
+    - Sourced from [worldometer](https://www.worldometers.info/demographics/life-expectancy/). 
+    - This is an interval-level variable.
+    - This is expected to have a positive relationship with *prospective*; as *expectancy* increases, *prospective* also increases.
+- Gross domestic product in 2022 (millions USD) (*nuclear GDP*). 
+    - Sourced from [World Bank Group](https://databank.worldbank.org/reports.aspx?source=2&series=NY.GDP.MKTP.CD&country#). 
+    - This is an interval-level variable.
+    - The raw GDP was divided by 1,000,000 to get a smaller figure to work with.
+    - This is expected to have a positive relationship with *prospective*; as *nuclear GDP* increases, *prospective* also increases.
+
+Notes:
+
+- No augmentations were made to the variables above after sourcing beside removing entries due to NA's arising from merging conflicts
+
+- Gross Domestic Product in 2018 is named *nuclear GDP* to differentiate between the GDP variable used in **Corruption Model**
+
+- **These independent variables were merged with *prospective* to create one central data frame. All variables and have a column named "Country," which was the basis for merging.**
+
+<br></br>
+
+```{r, echo=FALSE, warning=FALSE, message=FALSE, results='hide',fig.keep='all'}
+nuclear.model <- regC(Prospective~X2022.GDP.USD + Life.Expectancy + Fossil.fuels..TWh., data = combined.nuclear)
+
+summary_table <- summary(nuclear.model)$coefficients
+summary_table <- round(summary_table, 4)
+
+rownames(summary_table) <- c("Intercept", "GDP in 2022 (millions USD), *nuclear GDP*", "Life Expectancy, *expectancy*", "Fossil Fuels Consumption (TWh), *fossil fuels*")
+
+```
+
+```{r, echo=FALSE, warning=FALSE, message=FALSE}
+knitr::kable(summary_table, caption = "Regression Coefficients")
+```
+
+
+Analyzing the model, the intercept is at -23,474.7089, which means that when all independent variables have a value of 0, the amount of prospective nuclear power capacity being constructed sits at -23,474.7089 MW. This does not make sense but itself, but it gives us a starting point to see what impacts the independent variables have.
+
+*nuclear GDP* and *fossil fuels* have p-values less than 0.05, so they are statistically significant. These have the opposite effects I expected them to have. I expected *nuclear GDP* to be positively correlated to *prospective* because higher GDP would mean that a nation has more economic resources it could potentially devote to building facilities for nuclear power. However, *nuclear GDP* has a negative coefficient-- for every increase of one million GDP in USD, *prospective* deceases by 0.0039. Additionally, I expected *fossil fuels* to have a negative correlation with *prospective* because using more fossil fuels would mean that less resources would be put into nuclear energy (I thought it was a zero-sum game). As it turns out, *fossil fuels* has a positive coefficient-- for every one TWh increase in *fossil fuels*, *prospective* increases by 5.0816.
+
+As to the reasons why the actual findings for these variables appear different from my expected findings, a reason why *nuclear GDP* may have a negative coefficient instead of a positive one may be because as GDP increases, nations may determine oil to be a more cost effective energy source in the short term, so it is more worthwhile to spend that increase in economic resources toward oil rather than nuclear energy. Building off this idea of oil being more advantageous than nuclear energy, there may be a point of diminishing returns-- once a nation hits a point of a certain amount of fossil fuel consumption, it becomes more efficient to use nuclear energy instead of oil for that next unit of power. Thus, it makes sense for *fossil fuels* to have a positive relationship with *prospective*-- as *fossil fuels* increase, the value of the next TWh of fossil fuel consumption becomes less advantageous compared to nuclear energy, and at a certain point, nuclear energy becomes more effective.
+
+*expectancy* has a positive coefficient of 315.4497, which means that for every year increase in life expectancy, *prospective* increases by 315.4497 MW. However, *expectancy* has a p-value above 0.05, so it is not statistically significant.
+
+Stepping away from these results, to increase a nation's nuclear power capacity, they should invest their economic resources into fossil fuels, and as their oil consumption increases, it will become more effective to use nuclear energy. In essence, the key to building out nuclear power is to scale other forms of energy generation like fossil fuels to such an extent that they are no longer viable-- nuclear energy is the only option left. Following this logic, it makes sense for nations such as India and China to invest heavily into nuclear energy-- they consume enormous amounts of fossil fuels to a such a point that, to meet their energy demands, nuclear power is the last viable option of energy generation.
+
+<hr></hr>
+
+
+## **Corruption Model**
+
+The dependent variable for **Corruption Model** is Corruption Perception Index assessment in 2018 (*CPI*), which was sourced from [Our World in Data](https://ourworldindata.org/corruption). This is an interval-level variable. *CPI* refers to the perceived level of corruption in a particular country within the government/public sector. This is based off a 0-100 scale, with 0 being very corrupt and 100 being not corrupt at all.
+
+<br></br>
+
+
+#### **Corruption Perception Index (2018) Distribution**
+
+```{r, echo=FALSE, warning=FALSE, message=FALSE, results='hide',fig.keep='all'}
+histC(x=CPI, 
+      data = combined.impact, 
+      xlab = "Perception Value", 
+      main = "Corruption Perception Index in 2018", 
+      bar.col="mediumorchid1",
+      breaks=8,
+      plot = T) 
+```
+
+The distribution of *CPI* appears to be bimodally distributed, with two peaks and around 12.5 and 17.5 and an outlier around 32.5. As the Corruption Perception Index is measured on a scale from 0 to 100, with 0 being very corrupt and 100 being not corrupt at all, the graph reveals that the six countries in this model (which were picked for having been directly involved in the War of Terror) have very high rates of corruption
+
+It should be noted that the low sample size of six countries makes it difficult to tell what the exact distribution is; however, the low sample size is inherent with the nature of the selection process (there are only so many countries, and on top of that, there are only so many countries that have been involved in the War on Terror).
+
+The association between these countries being directly involved in the War on Terror and having low *CPI* scores indicate a correlation between the War on Terror and governmental corruption. We can infer from the graph that fighting terrorism leads to greater corruption (although we cannot state causation from this graph alone). As a key reason to the War on Terror was the United States supporting host states against insurgent groups that threatened the status of the petrodollar, we can establish a line of reasoning that reliance on oil leads to fighting terrorist groups, which leads to higher levels of corruption. To decrease corruption, countries would need to fight less with terrorist groups, which would mean having a decreased reliance on oil, which would make the American petrodollar less valuable and thus less worth fighting for.
+
+##### **Linear Regression Model**
+
+The regression model uses the established dependent variable, *CPI*. The level of corruption in a particular state is an indicator of the state of affairs in a country. With more corruption, we can expect standards of living, human rights justice, and economic conditions to be worse. To move into the future, it is a particular interest to decrease corruption across states across the globe. This model investigates what causes corruption, which may be used as a guide to how to mitigate governmental corruption across nations.
+
+The following independent variables are used to explain corruption perception in Afghanistan, Iraq, Pakistan, Libya, Syria, and Yemen:
+
+- Per capita kilocalorie supply from all foods per day in 2018, *supply*. 
+    - Sourced from [Our World in Data](https://ourworldindata.org/food-supply). 
+    - This is an interval-level variable.
+    - This is expected to have a positive relationship with *CPI*; as *supply* increases, *CPI* also increases.
+- Gross Domestic Product in 2018 (millions USD), *corruption GDP*.
+    - Sourced from [World Bank Group](https://databank.worldbank.org/reports.aspx?source=2&series=NY.GDP.MKTP.CD&country#). 
+    - This is an interval-level variable. 
+    - The raw GDP values were divided by 1,000,000 to make figures easier to manage.
+    - The name for Syria was changed from Syrian Arab Republic to Syria for consistency with other variables'
+    - This is expected to have a positive relationship with *CPI*; as *corruption GDP* increases, *CPI* also increases.country names. 
+    - Similarly, Yemen was changed from "Yemen, Rep." to Yemen.
+- Share of population with energy access in 2018, *access*. 
+    - Sourced from [Our World in Data](https://ourworldindata.org/energy-access). 
+    - This is an interval-level variable.
+    - This is expected to have a positive relationship with *CPI*; as *access* increases, *CPI* also increases.
+
+Notes: 
+
+- Gross Domestic Product in 2022 is named *corruption GDP* to differentiate between the GDP variable used in **Nuclear Model**
+
+- As a concrete list on countries directly impacted by the War on Terror was difficult to come by as a centralized list on one platform, the six countries listed above were sourced from ChatGPT using the prompt "Countries impacted by War on Terror" to find a list of countries to base this model on. These countries were evaluated to ensure that their statuses as countries impacted by the United States in the War on Terror are valid.
+
+- The year 2018 was chosen for the independent variables because it was the latest year that had a *CPI* value for all six countries used in the model. Although all the independent variables had valid data after 2018, it would not make sense to use independent variables that had data dated after the data of the dependent variable; so, 2018 was used across the board.
+
+- **These independent variables were merged with *CPI* to create one central data frame. All variables have a column named "Country," which was the basis for merging.**
+
+<br></br>
+
+```{r, echo=FALSE, warning=FALSE, message=FALSE, results='hide',fig.keep='all'}
+
+impact.model <- regC(CPI~Daily.Supply + Access.to.electricity....of.population. + GDP, data = combined.impact)
+
+summary_table <- summary(impact.model)$coefficients
+summary_table <- round(summary_table, 4)
+
+rownames(summary_table) <- c("Intercept", "Kilocalorie supply in 2018, *supply*", "Access to electricity (Population %) in 2018, *access*", "GDP in 2018 (millions USD), *corruption GDP*")
+
+```
+
+```{r, echo=FALSE, warning=FALSE, message=FALSE}
+knitr::kable(summary_table, caption = "Regression Coefficients")
+
+```
+
+Looking at the model findings, the intercept sits at 14.7102, meaning that when all independent variables have a value of 0, the *CPI* value is	14.7102, indicating a high level of corruption. *supply* and *corruption GDP* both have positive coefficients-- for every one kilocalorie increase in *supply*, *CPI* increases by 0.0008; for every million USD increase in *corruption GDP*, *CPI* increases by 0.0001. *access* has a negative relationship with *CPI*: For every one percentage increase in *access*, *CPI* decreases by 0.0502. 
+
+Through this findings, to decrease corruption, a state should increase its *supply* and *corruption GDP* and decrease its *access*. This mostly follows with my expected findings, with the exception of *access* having a negative coefficient rather than a positive one as I expected it to have. This difference in expectation may be because greater access to energy makes life easier for individuals by automating tasks, and this easing of life may make people less resentful and thus less likely to perceive their government as corrupt. 
+
+It must be noted that the p-values for all the independent variables, as well as the intercept, are above 0.05, meaning that these results are insignificant. These findings are subject to chance and should be considered with great hesitation. Although these results are insignificant, they imply that there is some other variable not explored in this model that is statistically significant; future studies may look into what this variable, or variables, may be.
+
+## Conclusion
+
+Nuclear energy and corruption are two points to consider as nations work towards improving life for citizens, both within their borders as well as those outside them. It is in nations' interests to increase nuclear energy to accommodate emerging energy demands and decrease public sector corruption to improve standards of life. On this note, to increase nuclear energy, nations with greater GDP figures can invest more into fossil fuels such as oil, which will gradually increase the viability of nuclear energy as an energy source as fossil fuels eventually reach diminishing returns. This study found insignificant results in terms of decreasing corruption within governments, but nations looking to address corruption may investigate other variables for possible corruption-decreasing avenues.
+
+<br></br>
+<br></br>
