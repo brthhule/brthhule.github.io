@@ -1,0 +1,10 @@
+[
+    {
+        "Term" : "Little Endian",
+        "Definition" : "Least significant byte at low address"
+    },
+    {
+        "Term" : "Big Endian",
+        "Definition": "Mos significant Byte at Low address"
+    }
+]
