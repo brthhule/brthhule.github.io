@@ -67,11 +67,11 @@ body {
 }
 
 #activities-container {
-  margin: 20px;
+  margin-top: 20px;
   overflow: scroll;
   scrollbar-width: thin;
   scrollbar-color: rgba(0, 0, 0, 0.5) transparent;
-  height: 680px;
+  height: calc(100vh - 40px);
   width: 430px;
 }
 

@@ -1,6 +1,10 @@
 const projectsSection = document.getElementById("projects-section");
 const projectsPointMap = new Map();
 
+const projectsMap = new Map(
+
+)
+
 
 projectsPointMap.set(
     "Peace Treaty", [
@@ -34,7 +38,12 @@ projectsPointMap.set(
 )
 
 
-
+const projectInformation = [
+    [
+        "Peace Treaty",
+        "A 4x genre strategy game inspired by \"Civilizations.\" Users pick from a variety of actions, such as attack and development, and explore a map.",
+    ]
+]
 const projectNames = [
     "Peace Treaty",
     "PTBamboo",
@@ -48,9 +57,27 @@ const projectDescriptions = [
     "Short term project where I learned how to make requests to an API",
 ]
 
+var projectVisibile = [
+    false,
+    false,
+]
+
 projectNames.forEach(function(name, index) {
     const paragraph = document.createElement("div");
     paragraph.className = "paragraph";
+
+
+    /*
+    const positionBar = document.createElement("div");
+    positionBar.className = "position-bar"
+    const positionTitle = document.createElement("div");
+    positionTitle.className = "position-title"
+    positionTitle.innerHTML = projectPositions[index]
+*/
+
+
+
+
 
     const paragraphTitle = document.createElement("div")
     paragraphTitle.className = "paragraph-title"
@@ -70,6 +97,7 @@ projectNames.forEach(function(name, index) {
 
     const points = projectsPointMap.get(name);
 
+    /*
     console.log("BATMAN: Points: ");
     console.log(points);
 
@@ -86,6 +114,7 @@ projectNames.forEach(function(name, index) {
     console.log(projectsPointMap);
         console.log(projectsPointMap.get(name));
     }
+        */
 
     points.forEach(function(point) {
         if (point.length > 1) {
@@ -109,8 +138,8 @@ projectNames.forEach(function(name, index) {
     paragraphPoints.appendChild(list);
     paragraphText.appendChild(paragraphPoints)
     paragraph.appendChild(paragraphText)
-    console.log(paragraph)
+    // console.log(paragraph)
     projectsSection.appendChild(paragraph)
 })
 
-console.log(projectsSection)
+// console.log(projectsSection)

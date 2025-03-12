@@ -39,23 +39,6 @@ workNames.forEach(function(name, index) {
 
     const points = workPointsMap.get(name);
 
-    console.log("BATMAN: Points: ");
-    console.log(points);
-
-    console.log("BATMAN: Name: " + name);
-    console.log("BATMAN: workPointsMap: ");
-    console.log(workPointsMap);
-
-    console.log("BATMAN: Points:")
-    console.log(points);
-
-    if (name === "PandaTech Website") {
-        console.log("Getting PandaTech website");
-        console.log("BATMAN: workPointsMap: ");
-    console.log(workPointsMap);
-        console.log(workPointsMap.get(name));
-    }
-
     points.forEach(function(point) {
         if (point.length > 1) {
             const pointElement = document.createElement("li")
@@ -78,8 +61,8 @@ workNames.forEach(function(name, index) {
     paragraphPoints.appendChild(list);
     paragraphText.appendChild(paragraphPoints)
     paragraph.appendChild(paragraphText)
-    console.log(paragraph)
+    //console.log(paragraph)
     workSection.appendChild(paragraph)
 })
 
-console.log(workSection)
+// console.log(workSection)

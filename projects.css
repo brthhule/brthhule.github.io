@@ -4,15 +4,35 @@
 }
 
 #projects-container {
-  margin: 20px;
+  margin-top: 20px;
   overflow: scroll;
   scrollbar-width: thin;
   scrollbar-color: rgba(0, 0, 0, 0.5) transparent;
-  height: 680px;
   width: 430px;
+  height: calc(100vh - 40px);
 }
 
-.paragraph {
+.position-bar {
+  display: flex;
+  flex-direction: row;
+  padding-left: 7px;
+  padding-right: 7px;
+  font-size: 15px;
+  font-weight: 700;
+}
+
+.position-title {
+  flex: 1;
+  text-align: left;
+}
+
+.position-duration {
+  flex: 1;
+  text-align: right;
+}
+
+.paragraph,
+.activities-paragraph {
   background-color: #f6eca9;
   color: #11235a;
   margin-top: 10px;
@@ -21,6 +41,10 @@
   margin-left: 10px;
   width: 380px;
   padding: 10px;
+}
+
+.activities-paragraph-container:hover {
+  cursor: pointer;
 }
 
 .paragraph-points {
