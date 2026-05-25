@@ -1,3 +1,5 @@
+// work.js
+
 const workSection = document.getElementById("work-section");
 const workPointsMap = new Map();
 

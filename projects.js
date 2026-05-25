@@ -1,3 +1,5 @@
+// projects.js
+
 const projectsSection = document.getElementById("projects-section");
 const projectsPointMap = new Map();
 

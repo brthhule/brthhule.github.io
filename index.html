@@ -1,95 +1,94 @@
-<!DOCTYPE html>
-<html>
+<!doctype html>
+<html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Portfolio, Brennen Le</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Portfolio — Brennen Le</title>
 
-    <link href="projects.css" rel="stylesheet" type="text/css" />
-    <link href="style.css" rel="stylesheet" type="text/css" />
-    <link
-      href="https://fonts.googleapis.com/css?family=Montserrat"
-      rel="stylesheet"
-    />
-    <!--Sets the font-->
-    <base href="index.html" target="_blank" />
-
-    <!--Balmiq Sans font-->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Balsamiq+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap"
       rel="stylesheet"
     />
 
-    <!--Lusitana font-->
-    <link href="https://fonts.googleapis.com/css2?family=Lusitana:wght@400;700&display=swap" rel="stylesheet">
+    <link href="projects.css" rel="stylesheet" type="text/css" />
+    <link href="style.css" rel="stylesheet" type="text/css" />
+
+    <base href="index.html" target="_blank" />
   </head>
 
-  <div id="activities-container">
-    <div class="section-title">Work Experience</div>
-    <div id="work-section"></div>
-    <br/><br/>
-    <div class="section-title">Activities</div>
-    <div id="activities-section"></div>
-  </div>
+  <body>
+    <!-- ── Left column: Work + Activities ── -->
+    <div id="activities-container">
+      <div class="section-title">Work Experience</div>
+      <div id="work-section"></div>
 
-  
-  <script src="work.js"></script>
-  <script src="activities.js"></script>
+      <div class="section-title" style="margin-top: 28px">Activities</div>
+      <div id="activities-section"></div>
+    </div>
 
+    <script src="work.js"></script>
+    <script src="activities.js"></script>
 
-
-
-
+    <!-- ── Center column: Profile ── -->
     <div id="main-container">
       <header>
-        <div class="section-title" id="portfolio-title">
-          Brennen Le - Portfolio
-        </div>
+        <div class="section-title" id="portfolio-title">Brennen Le</div>
+        <p
+          style="
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            margin-top: 2px;
+            letter-spacing: 0.04em;
+          "
+        >
+          Software Developer · University of Maryland
+        </p>
       </header>
 
-      <img id="my-picture" src="images/me-two.png" />
+      <img id="my-picture" src="images/me-two.png" alt="Brennen Le" />
+
       <div class="paragraph">
         <div class="paragraph-title">Career Interests</div>
-        <p class="paragraph-text">
+        <div class="paragraph-text">
           <ul>
             <li>Enterprise Software Development</li>
             <li>Assisting Community-Based Non-Profit Organizations</li>
           </ul>
-        </p>
+        </div>
       </div>
 
-      <div class="subsection">Links</div>
-
-      <div
-        class="paragraph"
-        style="text-align: left; padding-left: 5px; font-size: larger; padding: 0px"
-      >
-        <ul>
-          <li>
-            <a href="https://www.linkedin.com/in/brennen-le-810090217/"
-              >LinkedIn</a
-            >
-          </li>
-          <li><a href="https://github.com/brthhule">GitHub</a></li>
-        </ul>
+      <div>
+        <div class="subsection">Links</div>
+        <div class="paragraph">
+          <div class="paragraph-text">
+            <ul>
+              <li>
+                <a href="https://www.linkedin.com/in/brennen-le-810090217/"
+                  >LinkedIn</a
+                >
+              </li>
+              <li>
+                <a href="https://github.com/brthhule">GitHub</a>
+              </li>
+              <li>
+                <a href="appointments.html" target="_self"
+                  >Meeting Scheduling</a
+                >
+              </li>
+            </ul>
+          </div>
+        </div>
       </div>
     </div>
 
-    
-  <body>
+    <!-- ── Right column: Projects ── -->
     <div id="projects-container">
       <div class="section-title">Projects</div>
       <div id="projects-section"></div>
     </div>
 
     <script src="projects.js"></script>
-
-    
-
-
-    
-
   </body>
 </html>

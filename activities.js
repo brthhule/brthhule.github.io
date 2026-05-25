@@ -1,3 +1,5 @@
+// activities.js
+
 const activitiesSection = document.getElementById("activities-section");
 const activitiesPointsMap = new Map();
 

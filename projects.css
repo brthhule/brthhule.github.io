@@ -1,78 +1,119 @@
-#projects-section {
-  margin-top: 10px;
-  height: calc(100% - 20px);
-}
+/* projects.css */
 
-#projects-container {
-  margin-top: 20px;
-  overflow: scroll;
-  scrollbar-width: thin;
-  scrollbar-color: rgba(0, 0, 0, 0.5) transparent;
-  width: 430px;
-  height: calc(100vh - 40px);
-}
-
-.position-bar {
-  display: flex;
-  flex-direction: row;
-  padding-left: 7px;
-  padding-right: 7px;
-  font-size: 15px;
-  font-weight: 700;
-}
-
-.position-title {
-  flex: 1;
-  text-align: left;
-}
-
-.position-duration {
-  flex: 1;
-  text-align: right;
-}
-
+/* ── Shared card styles ── */
 .paragraph,
 .activities-paragraph {
-  background-color: #f6eca9;
-  color: #11235a;
-  margin-top: 10px;
-  border-style: solid;
-  border-radius: 25px;
-  margin-left: 10px;
-  width: 380px;
-  padding: 10px;
+  background: var(--card-bg);
+  color: var(--text-main);
+  border: 1px solid var(--card-border);
+  border-radius: var(--radius);
+  padding: 14px 16px;
+  width: 100%;
+  margin: 0;
+  transition:
+    border-color 0.15s ease,
+    box-shadow 0.15s ease;
+}
+
+.activities-paragraph-container {
+  margin-bottom: 10px;
 }
 
 .activities-paragraph-container:hover {
   cursor: pointer;
 }
 
-.paragraph-points {
-  text-align: center;
-  margin-top: 5px;
-  font-size: large;
+.activities-paragraph-container:hover .activities-paragraph {
+  border-color: var(--slate-light);
+  box-shadow: 0 2px 10px rgba(45, 96, 144, 0.1);
+}
+
+/* ── Position bar (title + date) ── */
+.position-bar {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 8px;
+  margin-bottom: 4px;
+}
+
+.position-title {
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--slate-light);
+}
+
+.position-duration {
+  font-size: 0.72rem;
+  color: var(--text-muted);
+  white-space: nowrap;
+}
+
+/* ── Card content ── */
+.paragraph-title {
+  font-family: "DM Serif Display", serif;
+  font-size: 0.975rem;
+  font-weight: 400;
+  color: var(--navy);
+  text-align: left;
+  margin-bottom: 5px;
 }
 
 .paragraph-text {
-  margin-top: 5px;
-  font-size: large;
-  text-align: center;
-  padding-left: 5px;
-  padding-right: 5px;
-}
-
-.paragraph-title {
-  margin-top: 5px;
-  padding-bottom: 0px;
-  font-size: large;
-  font-weight: 900;
-  text-align: center;
-}
-
-.paragraph-link {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  line-height: 1.6;
   text-align: left;
+}
+
+.paragraph-points {
+  margin-top: 8px;
+}
+
+.paragraph-points ul {
+  padding-left: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
 }
 
 .point-element {
+  font-size: 0.84rem;
+  color: var(--text-muted);
   text-align: left;
+  line-height: 1.5;
+}
+
+.paragraph-link {
+  color: var(--link-color);
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.paragraph-link:hover {
+  text-decoration: underline;
+}
+
+/* ── Section wrappers ── */
+#projects-section,
+#activities-section,
+#work-section {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 4px;
+}
+
+/* ── Expand/collapse indicator ── */
+.activities-paragraph-container .activities-paragraph::after {
+  content: "↓";
+  display: block;
+  text-align: right;
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  margin-top: 4px;
+  opacity: 0.6;
 }
