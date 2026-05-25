@@ -1,196 +1,165 @@
 // activities.js
 
 const activitiesSection = document.getElementById("activities-section");
-const activitiesPointsMap = new Map();
-
-
-activitiesPointsMap.set(
-    "International Genetically Engineered Machine Club", [
-        ["Developed the wiki for the 2024 competition"], 
-        ["https://2024.igem.wiki/umaryland/", "wiki"],
-        ["Worked with a team of developers to create a central club page"],
-        ["https://umarylandigem.github.io/", "Club Website"],
-    ]
-)
-activitiesPointsMap.set(
-    "Global Communities Student Association", [
-        ["Led the GCSA Executive Board in meetings and events"],
-        ["Managed event reservation requests"]
-    ]
-)
-
-activitiesPointsMap.set(
-    "Global Communities Student Association ", [
-        ["Organized folder directory of all organization notes and information"],
-        ["Assist in executive board members' roles and responsibilities"],
-        ["Ensure board members' assigned duties are fulfilled"],
-    ]
-)
-
-const activitiesNames = [
-    "International Genetically Engineered Machine Club",
-    "Global Communities Student Association",
-    "Global Communities Student Association "
-]
 
 const activitiesInformation = [
-    [
-        "Lead Web Developer",
-        "Feb 2024 - Present"
-    ],
-    [
-        "President",
-        "Jan 2025 - Present"
-    ],
-    [
-        "Vice President",
-        "Aug 2024 - Jan 2025"
-    ]
+    {
+        "org_name": "Echoish",
+        "points": [
+        ],
+        "position_name": "Secretary",
+        "position_duration": "Apr 2026 - Present",
+        "org_description": "",
+        "visible": false
+    },
+    {
+        "org_name": "Math Club",
+        "points": [
+        ],
+        "position_name": "Officer",
+        "position_duration": "Jun 2025 - Present",
+        "org_description": "",
+        "visible": false
+    },
+    {
+        "org_name": "Hong Kong Student Association",
+        "points": [
+        ],
+        "position_name": "Fundraising Chair",
+        "position_duration": "May 2025 - May 2026",
+        "org_description": "",
+        "visible": false
+    },
+    {
+        "org_name": "BigThink AI",
+        "points": [
+        ],
+        "position_name": "Marketing Lead",
+        "position_duration": "May 2025 - Present",
+        "org_description": "",
+        "visible": false
+    },
+    {
+        "org_name": "Campus Coders Crew",
+        "points": [
+        ],
+        "position_name": "Team Lead",
+        "position_duration": "Apr 2025 - Present",
+        "org_description": "",
+        "visible": false
+    },
+    {
+        "org_name": "International Genetically Engineered Machine Club",
+        "points": [
+            ["Developed graphic designs to promote our organization’s presence on campus."], 
+            ["Implemented an aggressive marketing tactic to reach a wide student audience."],
+            ["Increased our social media presence by 8%."],
+            ["Implemented aggressive marketing tactics, increasing social media presence by 8%."],
+        ],
+        "position_name": "Chair of Student Membership & Outreach",
+        "position_duration": "Mar 2025 - Feb 2026",
+        "org_description": "A multi-discipline club that participates in an annual synethetic biology competition for the International Genetically Engineered Machine organization. I am in the Design Committee",
+        "visible": false
+    },
+    {
+        "org_name": "Campus Coders Crew",
+        "points": [
+        ],
+        "position_name": "President",
+        "position_duration": "Feb 2025 - Present",
+        "org_description": "",
+        "visible": false
+    },
+    {
+        "org_name": "Global Communities Student Association",
+        "points": [
+            ["Led the GCSA Executive Board in meetings and events"],
+            ["Managed event reservation requests"]
+        ],
+        "position_name": "President",
+        "position_duration": "Dec 2024 - May 2025",
+        "org_description": "Plans community events for students in the Honors Global Challenges and Solutions Honors Program",
+        "visible": false
+    },
+    {
+        "org_name": "Chinese Student Association",
+        "points": [
+            ["Planned general body meetings for association members."],
+            ["Shadowed executive board meetings for the Chinese Student Associations."],
+            ["Created social media graphics for various events."],
+            ["Starred in an Instagram reel that increased views by 12%."],
+        ],
+        "position_name": "Auxiliary Officer",
+        "position_duration": "Sep 2024 - May 2025",
+        "org_description": "Plans community events for students in the Honors Global Challenges and Solutions Honors Program",
+        "visible": false
+    },
+    {
+        "org_name": "Global Communities Student Association",
+        "points": [
+            ["Organized folder directory of all organization notes and information"],
+            ["Assist in executive board members' roles and responsibilities"],
+            ["Ensure board members' assigned duties are fulfilled"],
+        ],
+        "position_name": "Vice President",
+        "position_duration": "Aug 2024 - Dec 2024",
+        "org_description": "Plans community events for students in the Honors Global Challenges and Solutions Honors Program",
+        "visible": false
+    },
+    {
+        "org_name": "Computer, Mathematical, and Natural Sciences Ambassadors",
+        "points": [
+        ],
+        "position_name": "Ambassador",
+        "position_duration": "Jun 2024 - Present",
+        "org_description": "",
+        "visible": false
+    },
+    {
+        "org_name": "International Genetically Engineered Machine Club",
+        "points": [
+            ["Developed the wiki for the 2024 competition"], 
+            ["https://2024.igem.wiki/umaryland/", "wiki"],
+            ["Worked with a team of developers to create a central club page"],
+            ["https://umarylandigem.github.io/", "Club Website"],
+        ],
+        "position_name": "Lead Web Developer",
+        "position_duration": "Feb 2024 - Present",
+        "org_description": "A multi-discipline club that participates in an annual synethetic biology competition for the International Genetically Engineered Machine organization. I am in the Design Committee",
+        "visible": false
+    },
+    {
+        "org_name": "Vietnamese Student Association",
+        "points": [
+        ],
+        "position_name": "Executive Experience Program (EEP) Member",
+        "position_duration": "Feb 2024 - Mar 2024",
+        "org_description": "",
+        "visible": false
+    },
+    {
+        "org_name": "Honors Ambassadors",
+        "points": [
+        ],
+        "position_name": "HGLO Co-Captain",
+        "position_duration": "Oct 2023 - Present",
+        "org_description": "",
+        "visible": false
+    },
+    {
+        "org_name": "Resident Hall Association: North Hill Area Council",
+        "points": [
+        ],
+        "position_name": "VP of Sustainability",
+        "position_duration": "Sep 2023 - May 2024",
+        "org_description": "",
+        "visible": false
+    },
 ]
 
-const activitiesDescriptions = [
-    "A multi-discipline club that participates in an annual synethetic biology competition for the International Genetically Engineered Machine organization. I am in the Design Committee",
-    "Plans community events for students in the Honors Global Challenges and Solutions Honors Program",
-    "Plans community events for students in the Honors Global Challenges and Solutions Honors Program"
-]
-
-const activitiesVisible = [
-    false,
-    false
-]
 
 
-
-function renderInnerParagraph(name, index) {
-
-}
-
-function renderPositionBar(index) {
-    const positionBar = document.createElement("div");
-    positionBar.className = "position-bar"
-    const positionTitle = document.createElement("div");
-    positionTitle.className = "position-title"
-    positionTitle.innerHTML = activitiesInformation[index][0];
-    const positionDuration = document.createElement("div");
-    positionDuration.className = "position-duration"
-    positionDuration.innerHTML = activitiesInformation[index][1]
-    positionBar.appendChild(positionTitle);
-    positionBar.appendChild(positionDuration);
-    return positionBar;
-}
-
-function renderParagraphList(name) {
-    const list = document.createElement("ul");
-    const points = activitiesPointsMap.get(name);
-    points.forEach(function(point) {
-        if (point.length > 1) {
-            const pointElement = document.createElement("li")
-            pointElement.className = "point-element"
-            const link = document.createElement("a")
-            link.innerHTML = point[1];
-            link.href = point[0];
-            link.className = "paragraph-link"
-            pointElement.appendChild(link)
-            list.appendChild(pointElement)
-            
-        } else {
-            const pointElement = document.createElement("li")
-            pointElement.textContent = point[0];
-            pointElement.className = "point-element"
-            list.appendChild(pointElement);
-        }
-    })
-    return list;
-}
-
-function renderParagraph(name, index) {
-    const paragraph = document.createElement("div");
-    paragraph.className = "activities-paragraph";
-
-    
-    paragraph.appendChild(renderPositionBar(index));
-
-    const paragraphTitle = document.createElement("div")
-    paragraphTitle.className = "paragraph-title"
-    paragraphTitle.innerHTML = name;
-    paragraph.appendChild(paragraphTitle)
-
-    const paragraphText = document.createElement("div")
-    paragraphText.className = "paragraph-text"
-    paragraphText.innerHTML = activitiesDescriptions[index]
-
-    const paragraphPoints = document.createElement("div")
-    paragraphPoints.className = "paragraph-points";
-
-    const list = renderParagraphList(name);
-
-    paragraphPoints.appendChild(list);
-    paragraphText.appendChild(paragraphPoints)
-    paragraph.appendChild(paragraphText)
-    
-    
-    //console.log(paragraph)
-    return paragraph;
-}
+import { renderInformation } from "./portfolio_renderer.js";
 
 
-function renderParagraphHead(name, index) {
-    const paragraph = document.createElement("div");
-    paragraph.className = "activities-paragraph";
-
-    
-    paragraph.appendChild(renderPositionBar(index));
-
-    const paragraphTitle = document.createElement("div")
-    paragraphTitle.className = "paragraph-title"
-    paragraphTitle.innerHTML = name;
-    paragraph.appendChild(paragraphTitle)
-
-    
-    
-    //console.log(paragraph)
-    return paragraph;
-}
-
-function renderAllActivities() {
-    activitiesNames.forEach(function(name, index) {
-        const paragraphContainer = document.createElement("div");
-        paragraphContainer.className = "activities-paragraph-container";
-
-        const paragraphHead = renderParagraphHead(name, index);
-        const paragraph = renderParagraph(name, index);
-
-        paragraphContainer.appendChild(paragraphHead);
-
-
-        // console.log("event listener added");
-        paragraphContainer.addEventListener('click', function() {
-            activitiesVisible[index] = !activitiesVisible[index];
-            if (activitiesVisible[index] == true) {
-                paragraphContainer.removeChild(paragraphHead);
-                paragraphContainer.appendChild(paragraph);
-            } else {
-                paragraphContainer.removeChild(paragraph);
-                paragraphContainer.appendChild(paragraphHead);
-            }
-            
-        })
-        activitiesSection.appendChild(paragraphContainer)
-    })
-}
-
-renderAllActivities();
-
-
-
-/**const myDiv = document.getElementById('myDiv');
-
-  myDiv.addEventListener('mouseover', function() {
-    myDiv.classList.add('hovered');
-  });
-
-  myDiv.addEventListener('mouseout', function() {
-    myDiv.classList.remove('hovered');
-  }); */
-
-// console.log(activitiesSection)
+renderInformation(activitiesInformation, activitiesSection);
