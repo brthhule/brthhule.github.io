@@ -4,8 +4,19 @@ const activitiesSection = document.getElementById("activities-section");
 
 const activitiesInformation = [
     {
+        "org_name": "Hong Kong Student Association",
+        "points": [
+            "Provide advice in fundraising activities"
+        ],
+        "position_name": "Fundraising Advisor",
+        "position_duration": "May 2026 - Present",
+        "org_description": "Cultural organization dedicated bringing together students from diverse backgrounds to learn about cantonese culture.",
+        "visible": false
+    },
+    {
         "org_name": "Echoish",
         "points": [
+            "Maintain board meeting minutes"
         ],
         "position_name": "Secretary",
         "position_duration": "Apr 2026 - Present",
@@ -15,6 +26,8 @@ const activitiesInformation = [
     {
         "org_name": "Math Club",
         "points": [
+            "Created social media graphics promoting the club on Instagram",
+            "Facilitated club operations"
         ],
         "position_name": "Officer",
         "position_duration": "Jun 2025 - Present",
@@ -27,12 +40,13 @@ const activitiesInformation = [
         ],
         "position_name": "Fundraising Chair",
         "position_duration": "May 2025 - May 2026",
-        "org_description": "",
+        "org_description": "Cultural organization dedicated bringing together students from diverse backgrounds to learn about cantonese culture.",
         "visible": false
     },
     {
         "org_name": "BigThink AI",
         "points": [
+            "Create social media graphics to promote the club on Instagram and LinkedIn"
         ],
         "position_name": "Marketing Lead",
         "position_duration": "May 2025 - Present",
@@ -42,10 +56,11 @@ const activitiesInformation = [
     {
         "org_name": "Campus Coders Crew",
         "points": [
+            "Manage a development team of 4 developers"
         ],
         "position_name": "Team Lead",
         "position_duration": "Apr 2025 - Present",
-        "org_description": "",
+        "org_description": "A web development organization that creates pro-bono software for clubs, startups, and other organizations around UMD.",
         "visible": false
     },
     {
@@ -64,10 +79,11 @@ const activitiesInformation = [
     {
         "org_name": "Campus Coders Crew",
         "points": [
+            "Manage the direction of the organization",
         ],
         "position_name": "President",
         "position_duration": "Feb 2025 - Present",
-        "org_description": "",
+        "org_description": "A web development organization that creates pro-bono software for clubs, startups, and other organizations around UMD.",
         "visible": false
     },
     {
